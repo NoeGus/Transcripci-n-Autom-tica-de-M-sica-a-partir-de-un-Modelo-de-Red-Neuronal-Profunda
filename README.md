@@ -1,4 +1,4 @@
-# Transcripción Automatica de Música-a-partir-de-un-Modelo-de-Red-Neuronal-Profunda
+# Transcripción Automática de Música a partir de un Modelo de Red-Neuronal Profunda
 
 
 ## Descripción
