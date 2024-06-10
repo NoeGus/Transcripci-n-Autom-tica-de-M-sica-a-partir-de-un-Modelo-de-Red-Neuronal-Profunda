@@ -1,0 +1,15 @@
+#Requerimientos
+#si estas trabajando en collab deberás usar !pip install
+
+pip install numpy
+pip install pandas
+pip install librosa
+pip install tensorflow
+pip install keras
+
+#para descargar la base de datos debes entrar al sitio de MAPS y solicitar acceso a ella:
+
+https://service.tsi.telecom-paristech.fr/cgi-bin/user-service/subscribe.cgi?ident=maps&form=&license=1
+
+se te enviara un link que debes usar en una aplicación de Protocolo de Transferencia de Archivos como
+Filezilla, winSCP o Cyberduck
