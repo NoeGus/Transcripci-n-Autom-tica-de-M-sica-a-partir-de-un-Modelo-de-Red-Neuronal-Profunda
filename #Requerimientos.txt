@@ -13,3 +13,4 @@ https://service.tsi.telecom-paristech.fr/cgi-bin/user-service/subscribe.cgi?iden
 
 se te enviara un link que debes usar en una aplicación de Protocolo de Transferencia de Archivos como
 Filezilla, winSCP o Cyberduck
+Realiza una division manualmente en la que el 20% de los archivos se usaran como carpeta de pruebas "MAPS-prueba"
