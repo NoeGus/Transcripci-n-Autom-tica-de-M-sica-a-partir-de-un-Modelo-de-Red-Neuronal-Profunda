@@ -103,7 +103,7 @@ print("Clasificator_report", cr)
 wav_1 = "//content/drive/MyDrive/MAPS Prueba/MAPS_SptkBGCl_2/SptkBGCl/MUS/MAPS_MUS-alb_esp2_SptkBGCl.wav"
 txt_1 = "//content/drive/MyDrive/MAPS Prueba/MAPS_SptkBGCl_2/SptkBGCl/MUS/MAPS_MUS-alb_esp2_SptkBGCl.txt"
 
-#wav_musicnet = "//content/drive/MyDrive/2364.wav"
+
 X_test = cargar_audio(wav_1)
 Y_test = model.predict(X_test)
 
