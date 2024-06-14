@@ -12,38 +12,48 @@ from google.colab import drive
 drive.mount('/content/drive')
 
 """
-hop = 512
-sr = 16384
-fs = 32
+
+#Parametros
+
+frame= 512 # Tamaño de frame
+sr = 16384 # Tasa de muestreo
 
 
 def cargar_audio(audio_path):
 
+    # Cálculo de serie de audio
     audio, _ = librosa.load(audio_path, sr=sr, mono=True)
-    spec = librosa.cqt(audio, sr=sr, hop_length=hop, n_bins=252,bins_per_octave=36)
+    # Cálculo de espectrograma (spec)
+    spec = librosa.cqt(audio, sr=sr, hop_length=frame, n_bins=252,bins_per_octave=36)
     spec = np.abs(spec)
-    #Normalización
+
+    #Normalización de espectrograma
     spec = (spec - np.min(spec)) / (np.max(spec)-np.min(spec))
     spec_traspose = spec.transpose()
     return spec_traspose
 
 def cargar_txt(txt_path):
 
+
     df = pd.read_table(txt_path, delim_whitespace=True)
+
+    #Construcción de matriz de ceros
     num_notas = 128
     num_frames = int(df['OffsetTime'].max() * sr)//hop
     piano_roll = np.zeros((num_notas, num_frames), dtype=int)
 
-
+    #Cálculo de celdas activas
     for index, row in df.iterrows():
         nota = int(row['MidiPitch'])
         frame_inicio = int(row['OnsetTime']*sr) // hop
         frame_fin = int(row['OffsetTime']*sr) // hop
         piano_roll[nota, frame_inicio:frame_fin+1] = int(1)
 
+    #Restricción a el rango de notas: C1-B7
     piano_roll = piano_roll[24:108]
     piano_roll = piano_roll.transpose()
     return piano_roll
+
 
 """
 SI ESTAS USANDO COLAB 
