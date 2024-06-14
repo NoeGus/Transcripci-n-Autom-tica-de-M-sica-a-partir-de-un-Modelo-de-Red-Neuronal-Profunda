@@ -33,12 +33,13 @@ model.compile(optimizer=optimizer, loss='mean_squared_error', metrics=['accuracy
 #muestra del modelo
 model.summary()
 
-#se guarda el mejor modelo del entrenamiento y se grafican los resultados del entrenamiento
+#se guarda el mejor modelo del entrenamiento y se grafican los resultados
+
 model_checkpoint = ModelCheckpoint('best_model.h5', monitor='val_loss', save_best_only=True, mode='min')
 
 history=model.fit(X_train, Y_train,
-                epochs=50,
-                batch_size=250,
+                epochs=50, #50 epocas utilizadas
+                batch_size=250, #tamaño de batch de 250
                 shuffle=True,
                 validation_data=(X_val, Y_val),callbacks=[model_checkpoint])
 
